@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>DH 2321 : Project 1 GROUP BUILDER</title>
+    <link rel="stylesheet" type="text/css" href="parallel.css" />
+  </head>
+  <body>
+  <div id="header">
+    <h1>DH 2321 : Project 1 GROUP BUILDER</h1>
+    <button title="Zoom in on selected data" id="keep-data" disabled="disabled">Keep</button>
+    <button title="Remove selected data" id="exclude-data" disabled="disabled">Exclude</button>
+    <button title="Export data as CSV" id="export-data">Export</button>
+    <div class="controls">
+      <strong id="rendered-count"></strong>/<strong id="selected-count"></strong><!--<strong id="data-count"></strong>-->
+      <div class="fillbar"><div id="selected-bar"><div id="rendered-bar">&nbsp;</div></div></div>
+      Lines at <strong id="opacity"></strong> opacity.
+      <span class="settings">
+        <button id="hide-ticks">Hide Ticks</button>
+        <button id="show-ticks" disabled="disabled">Show Ticks</button>
+        <button id="dark-theme">Dark</button>
+        <button id="light-theme" disabled="disabled">Light</button>
+      </span>
+    </div>
+    <div style="clear:both;"></div>
+  </div>
+  <div id="chart">
+    <canvas id="background"></canvas>
+    <canvas id="foreground"></canvas>
+    <canvas id="highlight"></canvas>
+    <svg></svg>
+  </div>
+  <div id="wrap">
+    <div class="half" id="controls">
+      <div class="bright">
+        <h3>What is this?</h3>
+        <p>
+          This visualization was made for a project in DH2321 at KTH. The goal was to form the best groups
+          according to a dataset <a href="nutrients.csv">Student_Skills.csv</a> containing the different skills of the students.
+        </p>
+        <p>
+          The parallel coordinates displays the skills of the students for different criterias. Then, you can easily build your group with the skills that you want.
+        </p>
+        <p>
+          <a href="http://eagereyes.org/techniques/parallel-coordinate">Never heard of parallel coordinates? Read this tutorial.</a>
+        </p>
+        
+      </div>
+      
+      <div class="little-box">
+        <h3>How to use?</h3>
+        <p>
+          One can consider that a good group is a group with complementary skills.
+          According to the skills of a student, brush higher or lower levels of skills for each column.<br/>
+          The remaining students will give the best results for your choice.<br/>
+          You can also export them.
+        </p>
+      </div>
+      
+      <div class="little-box">
+        <h3>Controls</h3>
+        <p>
+          <strong>Brush</strong>: Drag vertically along an axis.<br/>
+          <strong>Remove Brush</strong>: Tap the axis background.<br/>
+          <strong>Reorder Axes</strong>: Drag a label horizontally.<br/>
+          <strong>Invert Axis</strong>: Tap an axis label.<br/>
+          <strong>Remove Axis</strong>: Drag axis label to the left edge.<br/>
+        </p>
+      </div>
+      <div class="little-box">
+        <h3>Credits &amp; License</h3>
+          <p>
+          Adapted from examples by<br/>
+          <a href="http://bl.ocks.org/1341021">Mike Bostock</a> and <a href="http://bl.ocks.org/1341281">Jason Davies</a><br/>
+          </p>
+        </p>
+      </div>
+    </div>
+    
+    <div class="half">
+      <h3>Sample of students <input type="text" id="search" placeholder="Search for a Student"></input></h3>
+      <p id="food-list">
+      </p>
+    </div>
+  </div>
+  </body>
+  <script src="https://d3js.org/d3.v2.min.js"></script>
+  <script src="https://underscorejs.org/underscore.js"></script>
+  <script src="parallel.js"></script>
+</html>
